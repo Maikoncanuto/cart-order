@@ -123,3 +123,5 @@ buildNumber.properties
 # End of https://www.gitignore.io/api/java,maven,eclipse,visualstudiocode
 cart-order-api/.vscode/settings.json
 cart-order-api/.vscode/launch.json
+cart-order-front/.editorconfig
+cart-order-front/src/assets/.gitkeep
