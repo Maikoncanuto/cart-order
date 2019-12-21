@@ -14,18 +14,23 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { UserComponent } from './user/user.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    UserComponent
+    UserComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
@@ -37,6 +42,9 @@ import { UserComponent } from './user/user.component';
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
+    MatFormFieldModule,
+    MatInputModule,
+
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
