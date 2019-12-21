@@ -1,0 +1,12 @@
+.item-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-container > * {
+  width: 50%;
+}
+.item-container > .button{
+  width: 30%;
+ 
+}

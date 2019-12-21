@@ -18,9 +18,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
-import { UserComponent } from './user/components/user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ItemComponent } from './item/item.component';
+import { UserComponent } from './user/components/user.component';
+import { ItemComponent } from './item/components/item.component';
+import { EntityDataModule } from '@ngrx/data';
+import { entityConfig } from './entity-metadata';
+import { HttpClientModule } from '@angular/common/http';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,7 @@ import { ItemComponent } from './item/item.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
@@ -53,7 +58,10 @@ import { ItemComponent } from './item/item.component';
         strictStateImmutability: true,
         strictActionImmutability: true
       }
-    })
+    }),
+    EffectsModule.forRoot([]),
+
+    EntityDataModule.forRoot(entityConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

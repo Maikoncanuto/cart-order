@@ -1,13 +1,15 @@
 <div class="user-container">
-    <mat-form-field>
-        <input matInput placeholder="Name:">
-    </mat-form-field>
 
-    <mat-form-field>
-        <input matInput placeholder="Enter your email" [formControl]="email" required>
-        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-    </mat-form-field>
+    <form [formGroup]="basicForm" (ngSubmit)="create()" novalidate autocomplete="off"  >
+        <mat-form-field>
+            <input matInput placeholder="Name:" formControlName="name">
+        </mat-form-field>
 
-    <button (click)="save()" class="button" mat-raised-button color="primary">Save</button>
+        <mat-form-field>
+            <input matInput placeholder="Enter your email" [formControl]="email" required formControlName="email">
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
 
+        <button type="submit" class="button" mat-raised-button color="primary">Save</button>
+    </form>
 </div>

@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "cart-order-front"
+  "defaultProject": "cart-order-front",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
