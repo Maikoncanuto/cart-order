@@ -18,14 +18,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
-import { UserComponent } from './user/user.component';
+import { UserComponent } from './user/components/user.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ItemComponent } from './item/item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     UserComponent,
+    ItemComponent,
   ],
   imports: [
     BrowserModule,
