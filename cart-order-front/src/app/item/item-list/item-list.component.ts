@@ -3,6 +3,7 @@ import { ItemService } from '../item.service';
 import { Item } from '../item.model';
 import { Observable } from 'rxjs';
 import { MatPaginator, MatSort, MatTableDataSource, MatDialog } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-item-list',
@@ -20,7 +21,7 @@ export class ItemListComponent implements OnInit {
   itens$: Observable<Item[]>;
 
   constructor(private itemService: ItemService,private dialog: MatDialog,
-    private changeDetectorRefs: ChangeDetectorRef) {
+    private changeDetectorRefs: ChangeDetectorRef , private router: Router) {
     this.itens$ = itemService.entities$;
 
   }
@@ -36,9 +37,20 @@ export class ItemListComponent implements OnInit {
 
   getItens() {
     this.itemService.getAll().subscribe((res) => {
+      res.forEach(element => {
+        console.log(element);
+      });
+
       this.dataSource.data = res ;
       this.changeDetectorRefs.detectChanges();
     });
+  }
+
+
+
+  public redirectToDelete = (id: string) => {
+    let url: string = `/item/delete/${id}`;
+    this.router.navigate([url]);
   }
 
 }

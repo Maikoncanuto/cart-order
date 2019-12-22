@@ -17,6 +17,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { ItemCreateComponent } from './item/item-create/item-create.component';
 import { ItemListComponent } from './item/item-list/item-list.component';
 import { MaterialModule } from './material/material.module';
+import { ItemDeleteComponent } from './item/item-delete/item-delete.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MaterialModule } from './material/material.module';
     UserComponent,
     ItemCreateComponent,
     ItemListComponent,
+    ItemDeleteComponent,
   ],
   imports: [
     BrowserModule,

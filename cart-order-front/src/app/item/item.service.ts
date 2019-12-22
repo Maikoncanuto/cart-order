@@ -10,4 +10,5 @@ export class ItemService extends EntityCollectionServiceBase<Item> {
   constructor(serviceElementsFactory: EntityCollectionServiceElementsFactory) {
     super('Item', serviceElementsFactory);
   }
+
 }
