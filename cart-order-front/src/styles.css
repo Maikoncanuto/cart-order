@@ -2,3 +2,13 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.crud-container {
+    display: flex ;
+    flex-direction: column;
+  }
+.crud-container > * {
+    width: 50%;
+}
+
+

@@ -1,12 +1,20 @@
-import { EntityMetadataMap, EntityDataModuleConfig } from '@ngrx/data';
+import { EntityMetadataMap, EntityDataModuleConfig, DefaultDataServiceConfig } from '@ngrx/data';
+import { environment } from 'src/environments/environment';
 
 const entityMetadata: EntityMetadataMap = {
   User: {},
+  Item:{},
 };
 
-const pluralNames = {  };
+
+const pluralNames = { };
 
 export const entityConfig: EntityDataModuleConfig = {
   entityMetadata,
   pluralNames
+};
+
+export const defaultDataServiceConfig: DefaultDataServiceConfig = {
+  root: environment.baseUrl
+ 
 };
