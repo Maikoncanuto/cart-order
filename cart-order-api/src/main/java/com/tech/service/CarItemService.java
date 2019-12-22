@@ -41,7 +41,7 @@ public class CarItemService {
         .orElseThrow(() -> new ResourceNotFoundException("Cart order not found " + id));
     
         BigDecimal value = entity.getItens().stream().map(obj -> {
-            BigDecimal big = obj.getItem().getValue().multiply(BigDecimal.valueOf(obj.getQuantity()));
+            BigDecimal big = obj.getItem().getValueItem().multiply(BigDecimal.valueOf(obj.getQuantity()));
             return big;
         }).collect(Collectors.toList()).stream().reduce(BigDecimal.ZERO, BigDecimal::add);
         CartOrderDTO dto = new CartOrderDTO();

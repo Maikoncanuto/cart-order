@@ -10,8 +10,8 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserComponent } from './user/components/user.component';
-import { EntityDataModule } from '@ngrx/data';
-import { entityConfig } from './entity-metadata';
+import { EntityDataModule, DefaultDataServiceConfig } from '@ngrx/data';
+import { entityConfig, defaultDataServiceConfig } from './entity-metadata';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { ItemCreateComponent } from './item/item-create/item-create.component';
@@ -47,7 +47,9 @@ import { MaterialModule } from './material/material.module';
 
     EntityDataModule.forRoot(entityConfig)
   ],
-  providers: [],
+  providers: [
+    { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -24,9 +24,9 @@ public class ItemService {
     @Autowired
     private CustomSequenceService sequenceService;
 
-    public void create(ItemDTO dto) {
+    public ItemDTO create(ItemDTO dto) {
 
-        if (dto.getName() == null || dto.getValue() == null || dto.getValue().equals(BigDecimal.ZERO))
+        if (dto.getName() == null || dto.getValueItem() == null || dto.getValueItem().equals(BigDecimal.ZERO))
             throw new RequestException("Error data  json");
 
         if (repository.findItemByName(dto.getName()) != null)
@@ -35,7 +35,7 @@ public class ItemService {
         Item entity = MapperObject.parse(dto, Item.class);
         entity.setId(sequenceService.getNextSequence("itemSequence"));
 
-        repository.save(entity);
+       return MapperObject.parse(repository.save(entity), ItemDTO.class);
     }
 
     public List<ItemDTO> findall() {
@@ -49,10 +49,10 @@ public class ItemService {
 
     public void update(ItemDTO dto) {
         checkResource(dto.getId());
-        if(repository.findItemByName(dto.getName()) != null){
+        if (repository.findItemByName(dto.getName()) != null) {
             throw new BusinessException("The name Item was used before that. Only once record is permited");
         }
-        repository.save(Item.builder().id(dto.getId()).name(dto.getName()).value(dto.getValue()).build());
+        repository.save(Item.builder().id(dto.getId()).name(dto.getName()).valueItem(dto.getValueItem()).build());
     }
 
     public void delete(Integer id) {

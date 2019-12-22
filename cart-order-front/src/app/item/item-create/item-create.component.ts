@@ -48,12 +48,12 @@ export class ItemCreateComponent implements OnInit {
     this.location.back();
   }
 
-
-
   public createItem = (basicFormValue) => {
-
-    this.itemService.add(basicFormValue);
     console.log(basicFormValue);
+
+    this.itemService.add(basicFormValue).subscribe(result => {
+      this.location.back();
+    });
   }
 
 

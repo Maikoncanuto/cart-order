@@ -24,11 +24,11 @@ public class ItemController {
     @Autowired
     private ItemService service;
 
+
     @RequestMapping(method = RequestMethod.POST)
     @Consumes(MediaType.APPLICATION_JSON)
-    public ResponseEntity<?> createUser(@RequestBody ItemDTO dto) {
-        service.create(dto);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    public ResponseEntity<ItemDTO> createUser(@RequestBody ItemDTO dto) {
+        return new ResponseEntity<ItemDTO>(service.create(dto), HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.GET)

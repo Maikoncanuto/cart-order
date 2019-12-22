@@ -31,7 +31,7 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
     @ExceptionHandler(BusinessException.class)
 	public final ResponseEntity<ExceptionApiResponse> handleBusinessException(Exception ex, WebRequest request){
 		ExceptionApiResponse exceptionResponse = new ExceptionApiResponse(new Date(), ex.getMessage(), request.getDescription(false));
-		return new ResponseEntity<>(exceptionResponse, HttpStatus.OK);
+		return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
 	}
 	
 	@ExceptionHandler(ResourceNotFoundException.class)

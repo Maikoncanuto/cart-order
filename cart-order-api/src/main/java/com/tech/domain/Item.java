@@ -22,6 +22,6 @@ public class Item implements Serializable{
     @Id
 	private Integer id;
     private String name;
-    private BigDecimal value;
+    private BigDecimal valueItem;
 
 }

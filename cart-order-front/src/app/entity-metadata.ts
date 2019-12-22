@@ -7,7 +7,7 @@ const entityMetadata: EntityMetadataMap = {
 };
 
 
-const pluralNames = { };
+const pluralNames = { Item: 'itens' };
 
 export const entityConfig: EntityDataModuleConfig = {
   entityMetadata,
@@ -15,6 +15,11 @@ export const entityConfig: EntityDataModuleConfig = {
 };
 
 export const defaultDataServiceConfig: DefaultDataServiceConfig = {
-  root: environment.baseUrl
- 
+  root: environment.baseUrl,
+  entityHttpResourceUrls: {
+    Item: {
+      entityResourceUrl: environment.baseUrl + '/itens',
+      collectionResourceUrl: environment.baseUrl + '/itens'
+    }
+  }
 };
