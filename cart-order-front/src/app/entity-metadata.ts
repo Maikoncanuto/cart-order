@@ -20,6 +20,7 @@ export const defaultDataServiceConfig: DefaultDataServiceConfig = {
     Item: {
       entityResourceUrl: environment.baseUrl + 'itens',
       collectionResourceUrl: environment.baseUrl + 'itens',
+      
     }
   }
 };

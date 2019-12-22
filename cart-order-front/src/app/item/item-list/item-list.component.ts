@@ -37,10 +37,6 @@ export class ItemListComponent implements OnInit {
 
   getItens() {
     this.itemService.getAll().subscribe((res) => {
-      res.forEach(element => {
-        console.log(element);
-      });
-
       this.dataSource.data = res ;
       this.changeDetectorRefs.detectChanges();
     });
@@ -49,7 +45,13 @@ export class ItemListComponent implements OnInit {
 
 
   public redirectToDelete = (id: string) => {
-    let url: string = `/item/delete/${id}`;
+    let url: string = `/itens/delete/${id}`;
+    this.router.navigate([url]);
+  }
+
+
+  public redirectToUpdate = (id: string) => {
+    let url: string = `/itens/update/${id}`;
     this.router.navigate([url]);
   }
 

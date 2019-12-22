@@ -12,7 +12,6 @@ import { Observable } from 'rxjs';
 })
 export class ItemCreateComponent implements OnInit {
   public basicForm: FormGroup;
-  private dialogConfig;
   itens$: Observable<Item[]>;
 
 
@@ -30,13 +29,6 @@ export class ItemCreateComponent implements OnInit {
       valueItem: [null, Validators.required],
     })
 
-    this.dialogConfig = {
-      height: '200px',
-      width: '400px',
-      disableClose: true,
-      data: {}
-    }
-
   }
 
 
@@ -49,8 +41,6 @@ export class ItemCreateComponent implements OnInit {
   }
 
   public createItem = (basicFormValue) => {
-    console.log(basicFormValue);
-
     this.itemService.add(basicFormValue).subscribe(result => {
       this.location.back();
     });

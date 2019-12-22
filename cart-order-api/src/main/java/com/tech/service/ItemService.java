@@ -47,12 +47,13 @@ public class ItemService {
             return list;
     }
 
-    public void update(ItemDTO dto) {
+    public ItemDTO update(ItemDTO dto) {
         checkResource(dto.getId());
         if (repository.findItemByName(dto.getName()) != null) {
             throw new BusinessException("The name Item was used before that. Only once record is permited");
         }
-        repository.save(Item.builder().id(dto.getId()).name(dto.getName()).valueItem(dto.getValueItem()).build());
+        Item entity =  repository.save(Item.builder().id(dto.getId()).name(dto.getName()).valueItem(dto.getValueItem()).build());
+        return MapperObject.parse(entity, ItemDTO.class);
     }
 
     public void delete(Integer id) {
@@ -65,5 +66,9 @@ public class ItemService {
                 .orElseThrow(() -> new ResourceNotFoundException("Record not found with id  " + id));
         return entity;
     }
+
+	public ItemDTO findById(Integer id) {
+		return MapperObject.parse(checkResource(id), ItemDTO.class);
+	}
 
 }

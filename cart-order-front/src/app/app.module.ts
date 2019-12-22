@@ -18,6 +18,7 @@ import { ItemCreateComponent } from './item/item-create/item-create.component';
 import { ItemListComponent } from './item/item-list/item-list.component';
 import { MaterialModule } from './material/material.module';
 import { ItemDeleteComponent } from './item/item-delete/item-delete.component';
+import { ItemUpdateComponent } from './item/item-update/item-update.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ItemDeleteComponent } from './item/item-delete/item-delete.component';
     ItemCreateComponent,
     ItemListComponent,
     ItemDeleteComponent,
+    ItemUpdateComponent,
   ],
   imports: [
     BrowserModule,
