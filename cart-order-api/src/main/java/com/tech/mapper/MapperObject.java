@@ -3,18 +3,17 @@ package com.tech.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.github.dozermapper.core.DozerBeanMapperBuilder;
-import com.github.dozermapper.core.Mapper;
+import org.dozer.DozerBeanMapper;
+import org.dozer.Mapper;
 
 public class MapperObject {
 
-    private static Mapper mapper = DozerBeanMapperBuilder.buildDefault();
+	private static Mapper mapper = new DozerBeanMapper();
 
-
-    public static <S, D> D parse(S src, Class<D> des) {
+	public static <S, D> D parse(S src, Class<D> des) {
 		return mapper.map(src, des);
 	}
-	
+
 	public static <S, D> List<D> parse(List<S> src, Class<D> des) {
 		List<D> objects = new ArrayList<>();
 		for (Object o : src) {
@@ -22,6 +21,5 @@ public class MapperObject {
 		}
 		return objects;
 	}
-    
 
 }
