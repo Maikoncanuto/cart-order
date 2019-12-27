@@ -12,13 +12,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserComponent } from './user/components/user.component';
 import { EntityDataModule, DefaultDataServiceConfig } from '@ngrx/data';
 import { entityConfig, defaultDataServiceConfig } from './entity-metadata';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { ItemCreateComponent } from './item/item-create/item-create.component';
 import { ItemListComponent } from './item/item-list/item-list.component';
 import { MaterialModule } from './material/material.module';
 import { ItemDeleteComponent } from './item/item-delete/item-delete.component';
 import { ItemUpdateComponent } from './item/item-update/item-update.component';
+import { HttpErrorInterceptor } from './core/http-interceptors/http-error.interceptor';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { ItemUpdateComponent } from './item/item-update/item-update.component';
     EntityDataModule.forRoot(entityConfig)
   ],
   providers: [
-    { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }
+    { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

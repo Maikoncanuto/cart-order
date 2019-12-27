@@ -43,7 +43,7 @@ export class ItemCreateComponent implements OnInit {
 
   public createItem = (basicFormValue) => {
     this.itemService.add(basicFormValue).subscribe(result => {
-      this.notificationService.info ('Success message');
+      this.notificationService.success ('Success message');
       this.location.back();
     });
   }

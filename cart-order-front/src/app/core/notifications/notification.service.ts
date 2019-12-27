@@ -13,35 +13,35 @@ export class NotificationService {
   default(message: string) {
     this.show(message, {
       duration: 2000,
-      panelClass: 'default-notification-overlay'
+      panelClass: 'blue-snackbar'
     });
   }
 
   info(message: string) {
     this.show(message, {
       duration: 2000,
-      panelClass: 'info-notification-overlay'
+      panelClass: 'blue-snackbar'
     });
   }
 
   success(message: string) {
     this.show(message, {
       duration: 2000,
-      panelClass: 'success-notification-overlay'
+      panelClass: 'green-snackbar'
     });
   }
 
   warn(message: string) {
     this.show(message, {
       duration: 2500,
-      panelClass: 'warning-notification-overlay'
+      panelClass: 'yellow-snackbar'
     });
   }
 
   error(message: string) {
     this.show(message, {
       duration: 3000,
-      panelClass: 'error-notification-overlay'
+      panelClass: 'red-snackbar'
     });
   }
 
