@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { Item } from '../item.model';
 import { ItemService } from '../item.service';
 import { Observable } from 'rxjs';
+import { NotificationService } from 'src/app/core/notifications/notification.service';
 
 @Component({
   selector: 'app-item-create',
@@ -15,7 +16,7 @@ export class ItemCreateComponent implements OnInit {
   itens$: Observable<Item[]>;
 
 
-  constructor(private location: Location, private fb: FormBuilder,private itemService: ItemService) {
+  constructor(private readonly notificationService: NotificationService, private location: Location, private fb: FormBuilder,private itemService: ItemService) {
     this.itens$ = itemService.entities$;
   }
 
@@ -42,6 +43,7 @@ export class ItemCreateComponent implements OnInit {
 
   public createItem = (basicFormValue) => {
     this.itemService.add(basicFormValue).subscribe(result => {
+      this.notificationService.info ('Success message');
       this.location.back();
     });
   }
