@@ -39,7 +39,7 @@ export class ItemUpdateComponent implements OnInit {
   private getItemById() {
     let id: number = this.activeRoute.snapshot.params['id'];
 
-    this.itemService.getByKey("/" + id).subscribe(res => {
+    this.itemService.getByKey(id).subscribe(res => {
       this.item = res as Item;
       this.basicForm.patchValue(this.item);
     });

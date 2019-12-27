@@ -30,13 +30,13 @@ export class ItemDeleteComponent implements OnInit {
   private getItemById() {
     let id: number = this.activeRoute.snapshot.params['id'];
 
-    this.itemService.getByKey( "/" +id ,   ).subscribe(res => {
+    this.itemService.getByKey(id ,   ).subscribe(res => {
       this.item = res as Item;
     });
   }
 
   public delete(){
-    this.itemService.delete("/" + this.item.id).subscribe(res => {
+    this.itemService.delete(this.item.id).subscribe(res => {
       this.location.back();
     });
   }

@@ -4,6 +4,7 @@ import java.util.Date;
 
 import com.tech.exception.BusinessException;
 import com.tech.exception.ExceptionApiResponse;
+import com.tech.exception.NoContentException;
 import com.tech.exception.RequestException;
 import com.tech.exception.ResourceNotFoundException;
 
@@ -25,9 +26,6 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
 		return new ResponseEntity<>(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
     
-
-    
-
     @ExceptionHandler(BusinessException.class)
 	public final ResponseEntity<ExceptionApiResponse> handleBusinessException(Exception ex, WebRequest request){
 		ExceptionApiResponse exceptionResponse = new ExceptionApiResponse(new Date(), ex.getMessage(), request.getDescription(false));
@@ -44,5 +42,11 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
 	public final ResponseEntity<ExceptionApiResponse> handleRequestExceptions(Exception ex, WebRequest request){
 		ExceptionApiResponse exceptionResponse = new ExceptionApiResponse(new Date(), ex.getMessage(), request.getDescription(false));
 		return new ResponseEntity<>(exceptionResponse, HttpStatus.BAD_REQUEST);
+	}
+
+
+	@ExceptionHandler(NoContentException.class)
+	public final ResponseEntity<ExceptionApiResponse> handleNoContentExceptions(Exception ex, WebRequest request){
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 }

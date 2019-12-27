@@ -8,7 +8,7 @@ import { Item } from './item.model';
 @Injectable({ providedIn: 'root' })
 export class ItemService extends EntityCollectionServiceBase<Item> {
   constructor(serviceElementsFactory: EntityCollectionServiceElementsFactory) {
-    super('Item', serviceElementsFactory);
+    super('Itens', serviceElementsFactory);
   }
 
 }

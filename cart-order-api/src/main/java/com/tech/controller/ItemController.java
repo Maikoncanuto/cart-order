@@ -28,7 +28,6 @@ public class ItemController {
     @Autowired
     private ItemService service;
 
-
     @RequestMapping(method = RequestMethod.POST)
     @Consumes(MediaType.APPLICATION_JSON)
     public ResponseEntity<ItemDTO> createUser(@RequestBody ItemDTO dto) {
@@ -43,22 +42,21 @@ public class ItemController {
 
     @GetMapping("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-	public ItemDTO findById(@PathVariable("id") Integer id) {
-		return service.findById(id);
+    public ItemDTO findById(@PathVariable("id") Integer id) {
+        return service.findById(id);
     }
-    
- 
+
     @DeleteMapping("/{id}")
-	public ResponseEntity<?> delete(@PathVariable("id") Integer id) {
-		service.delete(id);
-		return ResponseEntity.ok().build();
-	}
+    public ResponseEntity<?> delete(@PathVariable("id") Integer id) {
+        service.delete(id);
+        return ResponseEntity.ok().build();
+    }
 
-    @PutMapping
+    @PutMapping("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-	public ItemDTO update(@RequestBody ItemDTO item) {
-		return service.update(item);
-	}
-
+    @Consumes(MediaType.APPLICATION_JSON)
+    public ItemDTO update(@RequestBody ItemDTO item) {
+        return service.update(item);
+    }
 
 }
