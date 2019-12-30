@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Item } from '../item.model';
+import { Item } from '../../item.model';
 import { Location } from '@angular/common';
-import { ItemService } from '../item.service';
 import { ActivatedRoute } from '@angular/router';
+import { ItemService } from '../../item.service';
 
 @Component({
   selector: 'app-item-update',

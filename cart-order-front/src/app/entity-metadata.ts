@@ -2,13 +2,13 @@ import { EntityMetadataMap, EntityDataModuleConfig, DefaultDataServiceConfig } f
 import { environment } from 'src/environments/environment';
 
 const entityMetadata: EntityMetadataMap = {
-  User: {},
+  Users: {},
   Itens:{},
 };
 
 
 
-const pluralNames = {Itens : 'itens'};
+const pluralNames = {Itens : 'itens' , Users: 'users'};
 
 export const entityConfig: EntityDataModuleConfig = {
   entityMetadata,

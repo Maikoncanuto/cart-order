@@ -8,6 +8,6 @@ import { User } from './user.model';
 @Injectable({ providedIn: 'root' })
 export class UserService extends EntityCollectionServiceBase<User> {
   constructor(serviceElementsFactory: EntityCollectionServiceElementsFactory) {
-    super('User', serviceElementsFactory);
+    super('Users', serviceElementsFactory);
   }
 }

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Location } from '@angular/common';
-import { Item } from '../item.model';
-import { ItemService } from '../item.service';
+import { Item } from '../../item.model';
 import { Observable } from 'rxjs';
 import { NotificationService } from 'src/app/core/notifications/notification.service';
+import { ItemService } from '../../item.service';
 
 @Component({
   selector: 'app-item-create',

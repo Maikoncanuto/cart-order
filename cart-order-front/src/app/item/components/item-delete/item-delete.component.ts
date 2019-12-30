@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material';
-import { Item } from '../item.model';
-import { ItemService } from '../item.service';
+import { Item } from '../../item.model';
+import { ItemService } from '../../item.service';
 import { Observable } from 'rxjs';
 
 @Component({

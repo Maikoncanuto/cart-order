@@ -48,7 +48,6 @@ public class ItemService {
     }
 
     public ItemDTO update(ItemDTO dto) {
-        checkResource(dto.getId());
         if (repository.findItemByName(dto.getName()) != null) {
             throw new BusinessException("The name Item was used before that. Only once record is permited");
         }
@@ -61,14 +60,14 @@ public class ItemService {
         repository.delete(entity);
     }
 
-    private Item checkResource(Integer id) {
-        Item entity = repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Record not found with id  " + id));
-        return entity;
-    }
-
 	public ItemDTO findById(Integer id) {
 		return MapperObject.parse(checkResource(id), ItemDTO.class);
-	}
+    }
+    
+    private Item checkResource(Integer id) {
+        Item entity = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Record not found with id:  " + id));
+        return entity;
+    }
 
 }

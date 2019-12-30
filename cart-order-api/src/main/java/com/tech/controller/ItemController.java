@@ -30,7 +30,7 @@ public class ItemController {
 
     @RequestMapping(method = RequestMethod.POST)
     @Consumes(MediaType.APPLICATION_JSON)
-    public ResponseEntity<ItemDTO> createUser(@RequestBody ItemDTO dto) {
+    public ResponseEntity<ItemDTO> create(@RequestBody ItemDTO dto) {
         return new ResponseEntity<ItemDTO>(service.create(dto), HttpStatus.CREATED);
     }
 

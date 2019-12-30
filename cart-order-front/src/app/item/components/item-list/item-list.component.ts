@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { ItemService } from '../item.service';
-import { Item } from '../item.model';
+import { Item } from '../../item.model';
 import { Observable } from 'rxjs';
 import { MatPaginator, MatSort, MatTableDataSource, MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
+import { ItemService } from '../../item.service';
 
 @Component({
   selector: 'app-item-list',
